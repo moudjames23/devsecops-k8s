@@ -25,7 +25,7 @@
                     always
                     {
                         junit 'target/surefire-reports/*.xml'
-                        jacoco exexPattern: 'targer/jacoco.exec'
+                        jacoco execPattern: 'target/jacoco.exec'
                     }
                 }
 
