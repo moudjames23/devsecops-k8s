@@ -35,8 +35,12 @@
               {
                   steps
                   {
-                    sh 'docker build -t moudjames23/devsecops-k8:""$GIT_COMMIT"" . ' 
-                    sh 'docker push moudjames23/devsecops-k8:""$GIT_COMMIT""'
+                    withDockerRegistry(['credentialsId': 'dockerhub', 'url': ''])
+                    {
+                      sh 'docker build -t moudjames23/devsecops-k8:""$GIT_COMMIT"" . ' 
+                      sh 'docker push moudjames23/devsecops-k8:""$GIT_COMMIT""'
+                    }
+                    
                   }
               }
         }
