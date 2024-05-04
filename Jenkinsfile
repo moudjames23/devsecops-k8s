@@ -30,5 +30,14 @@
                 }
 
             }
+
+            stage('Build and Push Docker Image')
+              {
+                  steps
+                  {
+                    sh 'docker build -t moudjames23/devsecops-k8:""$GIT_COMMIT"" . ' 
+                    sh 'docker push moudjames23/devsecops-k8:""$GIT_COMMIT""'
+                  }
+              }
         }
   }
